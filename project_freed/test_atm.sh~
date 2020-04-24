@@ -1,0 +1,93 @@
+#! /bin/bash
+
+run () {
+  echo "$*"           # echo the command
+  if $*               # execute it and test result
+  then echo 'success'
+  else echo 'error'
+  fi
+}
+
+run ./atm
+1
+# Admin Tests
+# Invalid Username
+admin
+1234
+# Invalid Password
+Admin
+1233
+# Successful Case
+Admin
+1234
+# Create New User
+1
+Sam Freed
+11651 E Dorado Ave
+19
+3038680576
+sjf1
+10601821
+# Log Out of Admin & Into Customer
+0
+2
+# Customer Menu Check
+# Deposit $100
+1
+100
+# Withdraw $50
+2
+50
+# View Current Info
+3
+
+# Edit
+# Re-enter Password for Security
+10601821
+# New Address, Phone Number, Username, and Password
+2510 Kittredge Loop Dr
+3036946254
+sjfEdit
+505444
+# Print New User Info
+3
+
+
+# Cash Transfer - fails due to lack of secondary user
+5
+# Log Out of Customer & Into Admin
+0
+1
+Admin
+1234
+# Create Secondary User
+1
+Joe Schmoe
+123 Main Street
+28
+3035551234
+joe.schmoe
+12345678
+# Log Out of Admin & Into New User
+0
+2
+joe.schmoe
+12345678
+# Transfer $25 From First User to Current User
+5
+sjfEdit
+joe.schmoe
+25
+# Log Out of Customer & Into Admin
+0
+1
+Admin
+1234
+# Delete Second User
+2
+joe.schmoe
+# Log Out & Shut Down
+0
+0
+
+exit 0
